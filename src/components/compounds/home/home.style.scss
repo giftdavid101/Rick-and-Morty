@@ -1,0 +1,15 @@
+.home{
+  width: 100%;
+  //height:calc(100vh - 80px);
+  background: purple;
+
+  &_home-content{
+    width:90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    background: orange;
+  }
+
+
+}

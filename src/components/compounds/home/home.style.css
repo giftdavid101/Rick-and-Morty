@@ -1,0 +1,13 @@
+.home {
+  width: 100%;
+  background: purple;
+}
+.home_home-content {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  background: orange;
+}
+
+/*# sourceMappingURL=home.style.css.map */
