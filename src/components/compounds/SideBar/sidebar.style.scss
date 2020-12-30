@@ -1,0 +1,30 @@
+.sidebar{
+  width:180px;
+  height: 100vh;
+background: #deb4de;
+  position: fixed;
+ &_links-collection{
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding:1.5rem;
+   &_link-item{
+       width:150px;
+     background: #30303e;
+     padding: 0.5rem;
+     margin: 15px;
+     border-radius: 5px;
+     text-align: center;
+     a{
+       text-decoration: none;
+       color:whitesmoke;
+       font-family: 'Homenaje', sans-serif;
+       font-size: 22px;
+     }
+   }
+
+ }
+
+
+}

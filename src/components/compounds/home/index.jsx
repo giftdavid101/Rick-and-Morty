@@ -1,60 +1,75 @@
-import React,{useState ,useEffect} from 'react';
-import Axios from 'axios'
-// import { Card } from 'antd';
-import Card from '../../elements/Card'
-import Info from "../../Info";
+import React, {useEffect, useState} from 'react';
+import Card from '../../elements/Card';
 import './home.style.css'
 
 
 
-    const Home = ({input ,characters, setCharacters}) => {
-         // console.log(input)
-        const [pagination, setPagination] = useState([])
+const Home = ({input, characters, setCharacters, loading}) => {
+    const [filtered, setFiltered] = useState([])
 
-        useEffect(() => {
-            Axios.get('https://rickandmortyapi.com/api/character')
-                .then((response) => {
-                    const {data,status} = response
-                    if(status === 200){
-                        setCharacters(data.results)
-                    }
-                    console.log(data)
-                })
-                .catch((err) => console.log(err));
-        }, []);
-
-        useEffect(() => {
-            if(!input){
-                setCharacters(characters)
-            }else {
-               const filteredCharacters = characters.filter(el => el.name.trim().toLowerCase().includes(input.trim().toLowerCase()))
-                setCharacters(filteredCharacters)
-            }
-        },[input])
-
+    useEffect(() => {
+        if (!input) {
+            setCharacters(characters)
+        } else {
+            const filteredCharacters = characters.filter(el => el.name.trim().toLowerCase().includes(input.trim().toLowerCase()))
+            setFiltered(filteredCharacters)
+        }
+        //eslint-disable-next-line
+    }, [input])
 
 
     return (
         <div className={'home'}>
             <div className={"home_home-content container"}>
-                {characters.length > 0
-                    ? characters.map((el) => (
-
-                        <Card
-                            image={el.image}
-                            handleClick={console.log}
-                        >
-                            <span className="card-meta_title">{el.name}</span>
-                            <span className="card-meta_description">
-                            {new Date(el.created).toLocaleString()}
-                        </span>
-
-                        </Card>
-
-                    ))
-                    : 'loading...'}
+                {loading ? <div style={{
+                        minHeight: '100vh',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        loading...
+                    </div> :
+                    filtered.length ?
+                        filtered.map((el) => (
+                            <Card
+                                key={el.id}
+                                id={el.id}
+                                image={el.image}
+                                status={el.status}
+                                gender={el.gender}
+                                origin={el.origin.name}
+                                data={el}
+                            >
+                                <span className="card-meta_title">{el.name}</span>
+                                <span className="card-meta_description">
+                                        {new Date(el.created).toLocaleString()}
+                                </span>
+                            </Card>
+                        ))
+                        :
+                        characters.length ?
+                            characters.map((el) => (
+                                <Card
+                                    key={el.id}
+                                    id={el.id}
+                                    image={el.image}
+                                    status={el.status}
+                                    gender={el.gender}
+                                    origin={el.origin.name}
+                                    data={el}
+                                >
+                                    <span className="card-meta_title">{el.name}</span>
+                                    <span className="card-meta_description">
+                                        {new Date(el.created).toLocaleString()}
+                                    </span>
+                                </Card>
+                            ))
+                            :
+                            'no characters'
+                }
             </div>
         </div>
     )
 }
 export default Home;
+

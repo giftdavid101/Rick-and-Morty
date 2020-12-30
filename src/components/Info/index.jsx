@@ -1,10 +1,13 @@
-import React,{useEffect}from 'react';
+import React from 'react';
+import './info.style.css'
 
 
-const Info = () => {
+const Info = ({children, status,gender}) => {
     return (
-        <div>
-            Hi
+        <div className={'info'}>
+            <div>{children}</div>
+            <span>{status}</span>
+            <span>{gender}</span>
         </div>
     );
 };
