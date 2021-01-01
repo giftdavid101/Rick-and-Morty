@@ -1,0 +1,32 @@
+.csl-section {
+  width: 100%;
+  background: #5c5c75;
+  display: flex;
+  justify-content: space-around;
+}
+.csl-section_csl-cards {
+  width: 250px;
+  height: 250px;
+  background: whitesmoke;
+  position: relative;
+}
+.csl-section_csl-cards_slanted-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  letter-spacing: 4px;
+  font-family: "Architects Daughter", cursive;
+  font-size: 30px;
+}
+.csl-section_csl-cards_slanted-text a {
+  text-decoration: none;
+  color: #262525;
+}
+.csl-section_csl-cards_slanted-text:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  color: purple;
+}
+
+/*# sourceMappingURL=csl.style.css.map */

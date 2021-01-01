@@ -3,8 +3,6 @@ import Input from "../../elements/Input";
 import './navbar.style.css'
 
 
-
-
 const InputBar = ({searchCharacters}) => {
 
     const handleChange = (e) => searchCharacters(e.target.value);

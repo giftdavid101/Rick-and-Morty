@@ -1,0 +1,18 @@
+.dead-characters {
+  width: 100%;
+}
+.dead-characters_dc-box_DC-display-container {
+  width: 100%;
+}
+.dead-characters_dc-box_DC-display-container_DC-display-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.dead-characters_dc-box_DC-display-container_DC-display-box_DC-card {
+  width: 270px;
+  height: 250px;
+  background: #5c5c75;
+  margin: 10px 0 10px;
+}
+
+/*# sourceMappingURL=dead.characters.style.css.map */

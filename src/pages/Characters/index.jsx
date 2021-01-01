@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import 'characters.style.css';
 import Card from '../../elements/Card';
 import './home.style.css'
 

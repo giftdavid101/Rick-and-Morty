@@ -1,7 +1,7 @@
 import React from 'react';
 import './searchicon.style.css'
 import {RiSearch2Line} from "react-icons/all";
-import InputBar from "../../compounds/Navbar";
+import InputBar from "../../compounds/Inputbar";
 
 const SearchIcon = ({clickSearchIcon,setClickSearchIcon,searchCharacters}) => {
  const handleClickSearch = () => setClickSearchIcon(true)
