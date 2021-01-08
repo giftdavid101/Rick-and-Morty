@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import PropTypes from 'prop-types';
 import './card.style.css'
 import Info from "../../Info";
 import { useHistory } from 'react-router-dom'
@@ -6,11 +7,11 @@ import { useHistory } from 'react-router-dom'
 const Card = ({children, image,status,gender,origin, data,id}) => {
     const [showInfo, setShowInfo] = useState(false)
     const history = useHistory()
-    console.log({data})
+    // console.log({data})
 
     const handleClick = () => {
         setShowInfo(true)
-        history.push('/view-character', {...data})
+        history.push('/characters/single-characters', {...data})
     }
 
 
@@ -32,6 +33,15 @@ const Card = ({children, image,status,gender,origin, data,id}) => {
             }
         </div>
     );
+};
+
+Card.propTypes = {
+    id: PropTypes.any,
+    image: PropTypes.string,
+    status: PropTypes.string,
+    gender: PropTypes.string,
+    origin: PropTypes.string,
+    data: PropTypes.object
 };
 
 export default Card;

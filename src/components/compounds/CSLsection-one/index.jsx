@@ -8,17 +8,17 @@ const CSLSectionOne = () => {
 
             <div className={'csl-section_csl-cards'}>
               <div className={'csl-section_csl-cards_slanted-text'}>
-                  <Link to={"/"}><span className={'text'}>Characters</span></Link>
+                  <Link to={"/characters"}><span className={'text'}>Characters</span></Link>
               </div>
             </div>
             <div className={'csl-section_csl-cards'} >
              <div className={'csl-section_csl-cards_slanted-text'}>
-                 <Link to={"/"}><span>Seasons</span></Link>
+                 <Link exact={'true'} to={"/episodes"}><span>Episodes</span></Link>
              </div>
             </div>
             <div className={'csl-section_csl-cards'}>
                 <div className={'csl-section_csl-cards_slanted-text'}>
-                    <Link to={"/"}><span >Locations</span></Link>
+                    <Link to={"/locations"}><span >Locations</span></Link>
                 </div>
             </div>
         </div>

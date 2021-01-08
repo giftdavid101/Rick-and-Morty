@@ -1,11 +1,16 @@
 import React from 'react';
 import {Button} from "antd";
 
+
 const SingleCharacter = (props) => {
     const {location: {state: character}, history} = props;
     // const character = props.location.state;
     // const {state: character} = props.location
 
+    if (!character) {
+        history.push('/characters')
+    }
+    console.log(character)
     console.log({props})
     return (
         <div>

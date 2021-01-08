@@ -1,13 +1,73 @@
 import React, {useEffect, useState} from 'react';
-import 'characters.style.css';
-import Card from '../../elements/Card';
-import './home.style.css'
+import Card from '../../components/elements/Card';
+import './characters.style.css'
+import Axios from "axios";
+import {Button} from "antd";
+import SingleCharacter from "../../components/compounds/singleCharacter";
+import {Switch,Route} from "react-router-dom";
+import {withRouter} from 'react-router-dom';
+import {FaGreaterThan, FaLessThan} from "react-icons/all";
 
 
 
 
-const Home = ({input, characters, setCharacters, loading}) => {
+
+const Characters = ({input}) => {
+    const [characters, setCharacters] = useState([])
     const [filtered, setFiltered] = useState([])
+    const [pagination, setPagination] = useState({});
+    const [loading, setLoading] = useState(false);
+    console.log(filtered)
+    const mainURL = process.env.REACT_APP_BASE_URL
+    const page = withRouter(SingleCharacter)
+    /**
+     * Takes page number
+     * @param {string} link - page link
+     */
+    const requestCharacters = (link = `${mainURL}/character`) => {
+        console.log({link})
+        setLoading(true)
+        Axios.get(link)
+            .then((response) => {
+                setLoading(false)
+                const {data, status} = response
+                if (status === 200) {
+                    setCharacters(data.results);
+                    setPagination(data.info)
+                }
+            })
+            .catch((err) => {
+                // setLoading(false)
+                console.log(err)
+            });
+    }
+    /**
+     * Navigates pages
+     * @param {'next' | 'prev'} action - takes 'next' or 'prev' actions
+     */
+    const navigation = (action) => {
+        switch (action) {
+            case "next":
+                pagination.next && requestCharacters(pagination.next)
+                break;
+            case "prev":
+                pagination.prev && requestCharacters(pagination.prev)
+                break;
+            default:
+                return
+        }
+
+    }
+
+
+
+    useEffect(() => {
+        requestCharacters();
+        // eslint-disable-next-line
+    }, []);
+
+
+
 
     useEffect(() => {
         if (!input) {
@@ -16,6 +76,7 @@ const Home = ({input, characters, setCharacters, loading}) => {
             const filteredCharacters = characters.filter(el => el.name.trim().toLowerCase().includes(input.trim().toLowerCase()))
             setFiltered(filteredCharacters)
         }
+
         //eslint-disable-next-line
     }, [input])
 
@@ -70,8 +131,15 @@ const Home = ({input, characters, setCharacters, loading}) => {
                             'no characters'
                 }
             </div>
+            {/*<Switch>*/}
+            {/*<Route exact path={'/view-character'} component={SingleCharacter}/>*/}
+            {/*</Switch>*/}
+                   <>
+                        <Button className={'butn'} disabled={!pagination.prev} onClick={() => navigation('prev')}><FaLessThan/></Button>
+                        <Button className={'butn'} disabled={!pagination.next} onClick={() => navigation('next')}><FaGreaterThan/></Button>
+                    </>
         </div>
     )
 }
-export default Home;
+export default Characters;
 

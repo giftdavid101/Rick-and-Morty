@@ -1,7 +1,7 @@
 .sidebar {
   width: 180px;
   height: 100vh;
-  background: #deb4de;
+  background: #505050;
   position: fixed;
 }
 .sidebar_links-collection {
@@ -12,11 +12,16 @@
 }
 .sidebar_links-collection_link-item {
   width: 150px;
-  background: #30303e;
   padding: 0.5rem;
   margin: 15px;
   border-radius: 5px;
   text-align: center;
+}
+.sidebar_links-collection_link-item:hover {
+  background: white;
+}
+.sidebar_links-collection_link-item:hover a {
+  color: black;
 }
 .sidebar_links-collection_link-item a {
   text-decoration: none;

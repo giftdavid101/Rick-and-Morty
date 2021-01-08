@@ -1,3 +1,10 @@
-
+.home {
+  width: 100%;
+}
+.home_home-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
 
 /*# sourceMappingURL=characters.style.css.map */
