@@ -1,10 +1,9 @@
 import React from 'react';
-
 import {Route, Switch} from "react-router-dom";
-import Characters from "../pages/Characters";
-import SingleCharacter from "../components/compounds/singleCharacter";
+import Characters from "../../pages/Characters";
+import SingleCharacter from "../../components/compounds/singleCharacter";
 
-const CharactersRoutes = props => {
+const CharactersRoutes = () => {
     return (
         <Switch>
             <Route exact path={"/characters/single-characters"} component={SingleCharacter}/>

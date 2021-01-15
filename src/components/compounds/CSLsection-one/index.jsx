@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './csl.style.css'
-const CSLSectionOne = () => {
+const CSLSectionOne = (s) => {
 
     return (
         <div className={'csl-section '}>

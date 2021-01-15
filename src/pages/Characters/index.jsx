@@ -4,7 +4,7 @@ import './characters.style.css'
 import Axios from "axios";
 import {Button} from "antd";
 import SingleCharacter from "../../components/compounds/singleCharacter";
-import {Switch,Route} from "react-router-dom";
+// import {Switch,Route} from "react-router-dom";
 import {withRouter} from 'react-router-dom';
 import {FaGreaterThan, FaLessThan} from "react-icons/all";
 
@@ -12,7 +12,9 @@ import {FaGreaterThan, FaLessThan} from "react-icons/all";
 
 
 
+
 const Characters = ({input}) => {
+
     const [characters, setCharacters] = useState([])
     const [filtered, setFiltered] = useState([])
     const [pagination, setPagination] = useState({});
@@ -102,6 +104,7 @@ const Characters = ({input}) => {
                                 gender={el.gender}
                                 origin={el.origin.name}
                                 data={el}
+
                             >
                                 <span className="card-meta_title">{el.name}</span>
                                 <span className="card-meta_description">

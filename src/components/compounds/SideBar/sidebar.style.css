@@ -4,6 +4,9 @@
   background: #505050;
   position: fixed;
 }
+.sidebar img {
+  width: 100%;
+}
 .sidebar_links-collection {
   display: flex;
   flex-direction: column;

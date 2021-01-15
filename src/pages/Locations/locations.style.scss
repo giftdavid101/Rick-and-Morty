@@ -1,5 +1,16 @@
 .locations{
   width: 100%;
-  height: 100vh;
   background: thistle;
+
+  &_location-container{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 20px;
+  }
+
+
 }
+
+
+

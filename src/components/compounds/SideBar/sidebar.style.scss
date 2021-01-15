@@ -3,6 +3,9 @@
   height: 100vh;
 background: #505050;
   position: fixed;
+  img{
+    width:100%;
+  }
  &_links-collection{
 
    display: flex;

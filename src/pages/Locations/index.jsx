@@ -2,10 +2,12 @@ import React, {useState, useEffect} from 'react';
 import Axios from "axios";
 import './locations.style.css';
 import Card from '../../components/elements/Card';
+import LocationCard from "../../components/elements/LocationCard";
 import {Button} from "antd";
+import EpisodeCard from "../../components/elements/EpisodeCard";
 
 const Locations = () => {
-    const[locs, setLocations] = useState([])
+    const [locs, setLocations] = useState([])
     const [pagination, setPagination] = useState({});
     const mainURL = process.env.REACT_APP_BASE_URL
 
@@ -49,24 +51,31 @@ const Locations = () => {
 
     return (
         <div className={"locations"}>
-            {
-                locs.length && locs.map((el) => (
-                    <div
-                        key={el.id}
-                        id={el.id}
-                        data={el}
-                        name={el.name}
-                    >
-                        <ul>
-                            <li><span>{el.name}</span></li>
-                        </ul>
-                    </div>
-                ))
-            }
-            <>
-                <Button disabled={!pagination.prev} onClick={() => navigation('prev')}>Prev</Button>
-                <Button disabled={!pagination.next} onClick={() => navigation('next')}>Next</Button>
-            </>
+            <div className={"locations_location-container"}>
+                {
+                    locs.length && locs.map((el) => (
+                        <LocationCard
+                            key={el.id}
+                            id={el.id}
+                            data={el}
+                            name={el.name}
+                            episode={el.episode}
+                            created={el.created}
+                            residents={el.residents}
+
+                        >
+                            <ul>
+                                <li><span>{el.name}</span></li>
+                            </ul>
+
+                        </LocationCard>
+                    ))
+                }
+                <>
+                    <Button disabled={!pagination.prev} onClick={() => navigation('prev')}>Prev</Button>
+                    <Button disabled={!pagination.next} onClick={() => navigation('next')}>Next</Button>
+                </>
+            </div>
         </div>
     );
 };
