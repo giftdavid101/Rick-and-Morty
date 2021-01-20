@@ -9,6 +9,11 @@
   justify-content: space-around;
   margin: 15px 0 15px 0;
 }
+.seasons-section_episode-display-box_seasons-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 170px;
+}
 .seasons-section_episode-display-box_EP-holder {
   color: yellow;
   width: 150px;

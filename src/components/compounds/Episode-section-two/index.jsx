@@ -36,18 +36,19 @@ const EpisodeSection = ({props}) => {
 
 
     return (
-        <div className={"episode-section "}>
-            <div className={"episode-section_ep-box container"}>
+        <div className={"seasons-section"}>
+            <div className={"seasons-section_ep-box container"}>
                 <h1>Latest Season</h1>
                 <div><h4>Season 4</h4></div>
 
 
                 <div
-                    className={"episode-section_episode-display-box"}
+                    className={"seasons-section_episode-display-box"}
                 >
 
 
-                    <div className={"episodes_episode-container"}>
+                    <div className={"seasons-section_episode-display-box_seasons-container"}>
+
 
                         {
                             episodes.length && episodes.map((el) => (
@@ -72,8 +73,8 @@ const EpisodeSection = ({props}) => {
                             )).slice(17)
                         }
                     </div>
-
                 </div>
+
 
             </div>
         </div>
