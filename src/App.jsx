@@ -6,7 +6,6 @@ import SideBar from "./components/compounds/SideBar";
 import SearchIcon from "./components/elements/SeachIcon";
 import CSLSectionOne from "./components/compounds/CSLsection-one";
 import DeadCharacters from "./components/compounds/DeadCharacters-section-three";
-import Locations from "./pages/Locations";
 import CharactersRoutes from "./Routers/CharactersRoute/charactersroutes";
 import EpisodeRoutes from "./Routers/EpisodeRoutes";
 import LocationsRoutes from "./Routers/LocationsRoute";
@@ -34,7 +33,7 @@ function App() {
                     <Route  path={"/locations"} component={LocationsRoutes}/>
                     <Route exact path={'/'}>
                         <CSLSectionOne/>
-                        <EpisodeSection  />
+                        <EpisodeSection />
                         <DeadCharacters/>
                     </Route>
                     <Route path={'*'} component={NotFound}/>

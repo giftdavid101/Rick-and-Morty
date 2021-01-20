@@ -1,9 +1,7 @@
-import React, {useState} from 'react';
-import './episodecard.style.css'
-import { useHistory } from 'react-router-dom'
-import EpisodeCharacters from "../../compounds/episodeCharacters";
-
-const EpisodeCard = ({children,id,characters}) => {
+import React from 'react';
+import {useHistory} from "react-router-dom";
+import './seasonscard.style.css'
+const SeasonsCard = ({children,id,characters}) => {
     const history = useHistory()
 
 
@@ -13,9 +11,8 @@ const EpisodeCard = ({children,id,characters}) => {
     ))
 
     const handleClick = () => {
-     history.push("/episodes/episode-characters",{ characters, id})
+        history.push("/episodes/episode-characters",{ characters, id})
     }
-
     console.log(characters)
     // const dataa = (loopedCharacters)
     // console.log(loopedCharacters.length)
@@ -24,7 +21,7 @@ const EpisodeCard = ({children,id,characters}) => {
 
 
     return (
-        <div className={'ep-card'} key={id}>
+        <div className={"seasons-card"} key={id}>
             <div onClick={handleClick}>
                 {/*{*/}
                 {/*    Array.from(characters).map((el,id) => (*/}
@@ -41,4 +38,4 @@ const EpisodeCard = ({children,id,characters}) => {
     );
 };
 
-export default EpisodeCard;
+export default SeasonsCard;
