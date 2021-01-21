@@ -1,6 +1,8 @@
 .dead-characters{
   width:100%;
   &_dc-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     &_DC-display-container{
      width:100%;
     &_DC-display-box {

@@ -1,6 +1,10 @@
 .dead-characters {
   width: 100%;
 }
+.dead-characters_dc-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 .dead-characters_dc-box_DC-display-container {
   width: 100%;
 }
