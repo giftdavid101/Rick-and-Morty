@@ -13,16 +13,15 @@ import NotFound from "./pages/ErrorPages/notfound";
 
 
 function App() {
-    const [filtered, setFiltered] = useState('')
+    const [filtered, setFiltered] = useState('[]')
     const [input, setInput] = useState('');
-    const [characters, setCharacters] = useState([])
+    // const [characters, setCharacters] = useState([])
     const [clickSearchIcon, setClickSearchIcon] = useState(false);
 
     const searchCharacters = (a) => {
         setInput(a);
         console.log(a)
     }
-    const handleChange = (e) => setFiltered(e.target.value);
     console.log(filtered)
     // useEffect(() => {
     //     if (!input) {
@@ -44,7 +43,7 @@ function App() {
                 <div>
                     <div>
                         <SearchIcon setClickSearchIcon={setClickSearchIcon} clickSearchIcon={clickSearchIcon}
-                                    setInput={handleChange} filtered={filtered} searchCharacters={searchCharacters}/>
+                                    setInput={setFiltered} filtered={filtered} searchCharacters={searchCharacters}/>
                     </div>
                 </div>
 

@@ -24,7 +24,7 @@ const Characters = ({filtered:input}) => {
 
 
 
-
+//   console.log(characters)
     // console.log(filtered)
     const mainURL = process.env.REACT_APP_BASE_URL
     const page = withRouter(SingleCharacter)
@@ -79,6 +79,7 @@ const Characters = ({filtered:input}) => {
         else {
             const filteredCharacters = characters.filter(el => el.name.trim().toLowerCase().includes(input.trim().toLowerCase()))
             setFiltered(filteredCharacters)
+            // console.log(filteredCharacters)
 
         }
 
