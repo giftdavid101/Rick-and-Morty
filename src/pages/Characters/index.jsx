@@ -4,22 +4,28 @@ import './characters.style.css'
 import Axios from "axios";
 import {Button} from "antd";
 import SingleCharacter from "../../components/compounds/singleCharacter";
-// import {Switch,Route} from "react-router-dom";
 import {withRouter} from 'react-router-dom';
 import {FaGreaterThan, FaLessThan} from "react-icons/all";
+import SearchIcon from "../../components/elements/SeachIcon";
 
+const Characters = ({filtered:input}) => {
 
+    // console.log(input)
+    // console.log(searchCharacters)
 
-
-
-
-const Characters = ({input}) => {
-
+    // const [input, setInput] = useState('');
     const [characters, setCharacters] = useState([])
     const [filtered, setFiltered] = useState([])
     const [pagination, setPagination] = useState({});
     const [loading, setLoading] = useState(false);
-    console.log(filtered)
+
+
+
+
+
+
+
+    // console.log(filtered)
     const mainURL = process.env.REACT_APP_BASE_URL
     const page = withRouter(SingleCharacter)
     /**
@@ -61,26 +67,34 @@ const Characters = ({input}) => {
 
     }
 
-
-
     useEffect(() => {
         requestCharacters();
         // eslint-disable-next-line
     }, []);
 
-
-
-
     useEffect(() => {
         if (!input) {
             setCharacters(characters)
-        } else {
+        }
+        else {
             const filteredCharacters = characters.filter(el => el.name.trim().toLowerCase().includes(input.trim().toLowerCase()))
             setFiltered(filteredCharacters)
+
         }
+
 
         //eslint-disable-next-line
     }, [input])
+    // useEffect(() => {
+    //     if (!input) {
+    //         setCharacters(characters)
+    //     } else {
+    //         const filteredCharacters = characters.filter(el => el.name.trim().toLowerCase().includes(input.trim().toLowerCase()))
+    //         setFiltered(filteredCharacters)
+    //     }
+    //
+    //     //eslint-disable-next-line
+    // }, [input])
 
 
     return (
@@ -94,7 +108,7 @@ const Characters = ({input}) => {
                     }}>
                         loading...
                     </div> :
-                    filtered.length ?
+                    filtered.length  ?
                         filtered.map((el) => (
                             <Card
                                 key={el.id}

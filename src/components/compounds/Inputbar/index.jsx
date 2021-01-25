@@ -3,15 +3,13 @@ import Input from "../../elements/Input";
 import './navbar.style.css'
 
 
-const InputBar = ({searchCharacters}) => {
-
-    const handleChange = (e) => searchCharacters(e.target.value);
+const InputBar = ({ setInput, filtered}) => {
 
     return (
         <div className={'navbar container'}>
             <div className={'navbar_navbar-content'}>
                <div className={"navbar_input-container"}>
-                <Input  placeholder={"Search for your favorite character..."} handleChange={handleChange}/>
+                <Input   placeholder={"Search for your favorite character..."} handleChange={setInput} value={filtered}/>
                </div>
            </div>
         </div>

@@ -13,7 +13,7 @@ const SeasonsCard = ({children,id,characters}) => {
     const handleClick = () => {
         history.push("/episodes/episode-characters",{ characters, id})
     }
-    console.log(characters)
+
     // const dataa = (loopedCharacters)
     // console.log(loopedCharacters.length)
     let randomEmages = Math.floor(Math.random() * loopedCharacters.length ) + 1

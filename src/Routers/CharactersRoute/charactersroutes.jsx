@@ -1,13 +1,17 @@
 import React from 'react';
+// eslint-disable-next-line
 import {Route, Switch} from "react-router-dom";
 import Characters from "../../pages/Characters";
 import SingleCharacter from "../../components/compounds/singleCharacter";
 
-const CharactersRoutes = () => {
+const CharactersRoutes = ({filtered}) => {
     return (
         <Switch>
             <Route exact path={"/characters/single-characters"} component={SingleCharacter}/>
-            <Route exact path={"/characters"} component={Characters}/>
+            {/*<Route   component={Characters}/>*/}
+            <Route exact path={"/characters"}>
+           <Characters filtered={filtered} />
+            </Route>
         </Switch>
     );
 };

@@ -3,6 +3,7 @@ import './dead.characters.style.css';
 import Axios from 'axios';
 import DCard from "../../elements/DCard";
 
+
 const DeadCharacters = () => {
 
     const [characters, setCharacters] = useState([])
