@@ -10,7 +10,7 @@ const handleClick = () => {
 }
     let loopedCharacters =   Array.from(residents).map((el,id) => (
         <img key={id}
-             src={el.replace("character", "character/avatar") + ".jpeg"} style={{width: 300, height: 300 }}  alt={""}/>
+             src={el.replace("character", "character/avatar") + ".jpeg"} style={{width: 250, height: 310 }}  alt={""}/>
     ))
 
 
@@ -21,8 +21,11 @@ const handleClick = () => {
                 {loopedCharacters}
             </div>
 
-            <div>
+            <div style={{position: 'absolute',
+                background:' #4a544e',
+                bottom: '15px'}}>
                 {children}
+
             </div>
         </div>
     );

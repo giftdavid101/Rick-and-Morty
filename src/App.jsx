@@ -30,12 +30,12 @@ function App() {
             <div><SideBar/></div>
 
             <div className={'character-content container'}>
-                <div>
-                    <div>
+
+                    <div className={'searchicon'}>
                         <SearchIcon setClickSearchIcon={setClickSearchIcon} clickSearchIcon={clickSearchIcon}
                                     setInput={setFiltered} filtered={filtered} searchCharacters={searchCharacters}/>
                     </div>
-                </div>
+
 
                 <Switch>
 

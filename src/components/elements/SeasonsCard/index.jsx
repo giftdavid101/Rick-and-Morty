@@ -7,11 +7,12 @@ const SeasonsCard = ({children,id,characters}) => {
 
     let loopedCharacters =   Array.from(characters).map((el,id) => (
         <img key={id}
-             src={el.replace("character", "character/avatar") + ".jpeg"} style={{width: 150, height: 150 }}  alt={""}/>
+             src={el.replace("character", "character/avatar") + ".jpeg"} style={{width: 180, height: 170 }}  alt={""}/>
     ))
 
-    const handleClick = () => {
-        history.push("/episodes/episode-characters",{ characters, id})
+    const handleClick = (e) => {
+        // history.push("/episodes/episode-characters",{ characters, id})
+        console.log(e.target.value)
     }
 
     // const dataa = (loopedCharacters)
@@ -23,7 +24,7 @@ const SeasonsCard = ({children,id,characters}) => {
     return (
         <div className={"seasons-card"} key={id}>
 
-            <div onClick={handleClick}>
+            <div  onClick={handleClick}>
                 {/*{*/}
                 {/*    Array.from(characters).map((el,id) => (*/}
                 {/*        <img key={id}*/}

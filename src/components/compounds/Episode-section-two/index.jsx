@@ -3,6 +3,7 @@ import Axios from 'axios'
 import './episode.style.css'
 import SeasonsCard from "../../elements/SeasonsCard";
 
+
 const EpisodeSection = () => {
     const [episodes, setEpisodes] = useState([])
 
@@ -34,9 +35,9 @@ const EpisodeSection = () => {
 
     return (
         <div className={"seasons-section"}>
-            <div className={"seasons-section_ep-box container"}>
-                <h1>Latest Season</h1>
-                <div><h4>Season 4</h4></div>
+            <div className={"seasons-section_ep-box"}>
+                <h1 className={'seasons-section_ep-box_title'}>Latest Season</h1>
+                <h4 className={'seasons-section_ep-box_sub-title'}>Season 4</h4>
                 <div className={"seasons-section_episode-display-box"}>
 
                     <div className={"seasons-section_episode-display-box_seasons-container"}>
@@ -52,9 +53,7 @@ const EpisodeSection = () => {
                                     characters={el.characters}
                                 >
                                     <ul>
-                                        <p><span>{el.episode}{el.name} </span></p>
-
-                                        <span>{new Date(el.created).toLocaleString()} </span>
+                                        <p><span>{el.episode} {" "}{el.name} </span></p>
 
                                     </ul>
                                 </SeasonsCard>

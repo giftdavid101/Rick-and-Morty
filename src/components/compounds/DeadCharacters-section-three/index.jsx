@@ -7,7 +7,7 @@ import DCard from "../../elements/DCard";
 const DeadCharacters = () => {
 
     const [characters, setCharacters] = useState([])
-    const [filtered,setFiltered] = useState([])
+    const [filtered, setFiltered] = useState([])
     const mainURL = process.env.REACT_APP_BASE_URL
     console.log(characters)
 
@@ -30,10 +30,10 @@ const DeadCharacters = () => {
         // eslint-disable-next-line
     }, []);
     useEffect(() => {
-         if (!characters) {
+        if (!characters) {
             setCharacters(characters)
         } else {
-            const deadCharacters = characters.filter(el =>  el.status === 'Dead')
+            const deadCharacters = characters.filter(el => el.status === 'Dead')
             setFiltered(deadCharacters)
         }
 
@@ -43,34 +43,36 @@ const DeadCharacters = () => {
 
     return (
         <div className={"dead-characters"}>
-            <h1>Dead Characters</h1>
+            <h1 className={'dead-characters_title'}>Dead Characters</h1>
             <div className={"dead-characters_dc-box "}>
 
+                <div className={"dead-characters_dc-box_content"}>
 
-                {filtered.length ?
-                    filtered.map((el) => (
-                        <DCard
-                            key={el.id}
-                            id={el.id}
-                            image={el.image}
-                            status={el.status}
-                            gender={el.gender}
-                            origin={el.origin.name}
-                            data={el}
-                        >
-                            <span className="card-meta_title">{(el.status)}</span>
-                            <span className="card-meta_description">
+
+                    {filtered.length ?
+                        filtered.map((el) => (
+                            <DCard
+                                key={el.id}
+                                id={el.id}
+                                image={el.image}
+                                status={el.status}
+                                gender={el.gender}
+                                origin={el.origin.name}
+                                data={el}
+                            >
+                                <span className="card-meta_title">{(el.status)}</span>
+                                <span className="card-meta_description">
 
                                         {new Date(el.created).toLocaleString()}
                             </span>
-                        </DCard>
-                    ))
-                    :
-                    'no characters'
+                            </DCard>
+                        ))
+                        :
+                        'no characters'
 
-                }
+                    }
 
-
+                </div>
                 {/* <div className={"dead-characters_dc-box_DC-display-container"}>*/}
                 {/*<div className={"dead-characters_dc-box_DC-display-container_DC-display-box"}>*/}
                 {/*    <div className={"dead-characters_dc-box_DC-display-container_DC-display-box_DC-card"}>Photo</div>*/}
@@ -85,7 +87,7 @@ const DeadCharacters = () => {
         </div>
 
 
-);
+    );
 }
 
 export default DeadCharacters;
