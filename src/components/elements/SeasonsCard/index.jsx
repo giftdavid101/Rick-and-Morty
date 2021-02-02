@@ -1,8 +1,8 @@
 import React from 'react';
-import {useHistory} from "react-router-dom";
+// import {useHistory} from "react-router-dom";
 import './seasonscard.style.css'
 const SeasonsCard = ({children,id,characters}) => {
-    const history = useHistory()
+    // const history = useHistory()
 
 
     let loopedCharacters =   Array.from(characters).map((el,id) => (
