@@ -20,7 +20,9 @@ const Card = ({children, image,status,gender,origin, data,id}) => {
             <div  className="card-img" onClick={handleClick}>
                 <img alt="character" src={image}/>
             </div>
-            <div className={"card-meta"}>
+            <div className={"card-meta"} style={{position: 'absolute',
+                background:' #4a544e',
+                bottom: '15px'}}>
                 {children}
             </div>
 

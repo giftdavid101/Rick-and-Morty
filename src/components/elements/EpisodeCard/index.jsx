@@ -1,17 +1,21 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './episodecard.style.css'
 import {useHistory} from 'react-router-dom'
-import EpisodeCharacters from "../../compounds/episodeCharacters";
+
 
 const EpisodeCard = ({children, id, characters}) => {
+
+
+
+
+
     const history = useHistory()
 
 
     let loopedCharacters = Array.from(characters).map((el, id) => (
         <div>
-        <img key={id}
+            <img key={id}
              src={el.replace("character", "character/avatar") + ".jpeg"} style={{width: 250, height: 308}} alt={""}/>
-
         </div>
     ))
 
@@ -34,7 +38,11 @@ const EpisodeCard = ({children, id, characters}) => {
                 {/*             src={el.replace("character", "character/avatar") + ".jpeg"} style={{width:250, height:250 }}  alt={""}/>*/}
                 {/*    ))*/}
                 {/*}*/}
-                {loopedCharacters[randomEmages]}
+                <div>
+                    {loopedCharacters[randomEmages]}
+                </div>
+
+
 
 
             </div>
@@ -42,6 +50,7 @@ const EpisodeCard = ({children, id, characters}) => {
                 background:' #4a544e',
                 bottom: '15px'}}>
                 {children}
+
             </div>
         </div>
     );

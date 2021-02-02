@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import Axios from "axios";
 import './locations.style.css';
-import Card from '../../components/elements/Card';
+
 import LocationCard from "../../components/elements/LocationCard";
 import {Button} from "antd";
-import EpisodeCard from "../../components/elements/EpisodeCard";
+
 
 const Locations = () => {
     const [locs, setLocations] = useState([])
@@ -47,6 +47,7 @@ const Locations = () => {
     console.log({locs})
     useEffect(() => {
         requestLocations();
+        //eslint-disable-next-line
     }, [])
 
     return (

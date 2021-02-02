@@ -1,7 +1,7 @@
 import React from 'react';
 import './input.style.css'
 
-const Input = ({placeholder, value ,handleChange}) => {
+const Input = ({placeholder, value,handleChange}) => {
 
 
     return (

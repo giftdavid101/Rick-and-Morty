@@ -3,31 +3,18 @@ import Card from '../../components/elements/Card';
 import './characters.style.css'
 import Axios from "axios";
 import {Button} from "antd";
-import SingleCharacter from "../../components/compounds/singleCharacter";
-import {withRouter} from 'react-router-dom';
 import {FaGreaterThan, FaLessThan} from "react-icons/all";
-import SearchIcon from "../../components/elements/SeachIcon";
 
-const Characters = ({filtered:input}) => {
+const  Characters = ({filtered:input}) => {
 
     // console.log(input)
-    // console.log(searchCharacters)
 
-    // const [input, setInput] = useState('');
     const [characters, setCharacters] = useState([])
     const [filtered, setFiltered] = useState([])
     const [pagination, setPagination] = useState({});
     const [loading, setLoading] = useState(false);
-
-
-
-
-
-
-//   console.log(characters)
-    // console.log(filtered)
     const mainURL = process.env.REACT_APP_BASE_URL
-    const page = withRouter(SingleCharacter)
+    console.log(filtered)
     /**
      * Takes page number
      * @param {string} link - page link
@@ -79,23 +66,9 @@ const Characters = ({filtered:input}) => {
         else {
             const filteredCharacters = characters.filter(el => el.name.trim().toLowerCase().includes(input.trim().toLowerCase()))
             setFiltered(filteredCharacters)
-            // console.log(filteredCharacters)
-
         }
-
-
         //eslint-disable-next-line
     }, [input])
-    // useEffect(() => {
-    //     if (!input) {
-    //         setCharacters(characters)
-    //     } else {
-    //         const filteredCharacters = characters.filter(el => el.name.trim().toLowerCase().includes(input.trim().toLowerCase()))
-    //         setFiltered(filteredCharacters)
-    //     }
-    //
-    //     //eslint-disable-next-line
-    // }, [input])
 
 
     return (
@@ -149,13 +122,11 @@ const Characters = ({filtered:input}) => {
                             'no characters'
                 }
             </div>
-            {/*<Switch>*/}
-            {/*<Route exact path={'/view-character'} component={SingleCharacter}/>*/}
-            {/*</Switch>*/}
-                   <>
+
+                   <div>
                         <Button className={'butn'} disabled={!pagination.prev} onClick={() => navigation('prev')}><FaLessThan/></Button>
                         <Button className={'butn'} disabled={!pagination.next} onClick={() => navigation('next')}><FaGreaterThan/></Button>
-                    </>
+                    </div>
         </div>
     )
 }

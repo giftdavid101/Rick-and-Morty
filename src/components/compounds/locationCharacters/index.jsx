@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LocationCharacters = (props) => {
-    const {location:{state:{residents:loopedCharacters,id}}} = props
+    const {location:{state:{residents:loopedCharacters}}} = props
 
     let loopCharacters = Array.from(loopedCharacters).map((el,id) => (
         <img key={id}

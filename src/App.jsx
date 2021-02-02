@@ -13,26 +13,16 @@ import NotFound from "./pages/ErrorPages/notfound";
 
 
 function App() {
-    const [filtered, setFiltered] = useState('[]')
+    const [filtered, setFiltered] = useState('')
     const [input, setInput] = useState('');
-    // const [characters, setCharacters] = useState([])
     const [clickSearchIcon, setClickSearchIcon] = useState(false);
 
     const searchCharacters = (a) => {
         setInput(a);
         console.log(a)
     }
-    console.log(filtered)
-    // useEffect(() => {
-    //     if (!input) {
-    //         setCharacters(characters)
-    //     } else {
-    //         const filteredCharacters = characters.filter(el => el.name.trim().toLowerCase().includes(input.trim().toLowerCase()))
-    //         setFiltered(filteredCharacters)
-    //     }
-    //
-    //     //eslint-disable-next-line
-    // }, [input])
+
+
     return (
 
         <div className="App container">
@@ -47,13 +37,12 @@ function App() {
                     </div>
                 </div>
 
-
                 <Switch>
 
                     <Route path={"/characters"}>
                         <CharactersRoutes filtered={filtered} setFiltered={setFiltered}/>
                     </Route>
-                    {/*<Route path={"/characters"}  component={CharactersRoutes}/>*/}
+
                     <Route path={"/episodes"}>
                         <EpisodeRoutes filtered={filtered} setFiltered={setFiltered}/>
                     </Route>
@@ -61,8 +50,6 @@ function App() {
                         <LocationsRoutes filtered={filtered} setFiltered={setFiltered}/>
                     </Route>
 
-                    {/*<Route   component={EpisodeRoutes}/>*/}
-                    {/*<Route  path={"/locations"} component={LocationsRoutes}/>*/}
                     <Route exact path={'/'}>
                         <CSLSectionOne input={input}/>
                         <EpisodeSection/>

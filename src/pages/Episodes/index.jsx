@@ -3,7 +3,7 @@ import Axios from 'axios';
 import './episodes.styles.css';
 import {Button} from "antd";
 import EpisodeCard from "../../components/elements/EpisodeCard";
-import Card from "../../components/elements/Card";
+
 
 
 const Episodes = ({filtered:input}) => {
@@ -14,8 +14,10 @@ const Episodes = ({filtered:input}) => {
     const [loading, setLoading] = useState(false)
     const mainURL = process.env.REACT_APP_BASE_URL
 
+    console.log(input)
+
     // console.log(episodes)
-    // console.log(filtered)
+    // console.log(setFiltered)
     const requestEpisodes = (episodeLink = `${mainURL}/episode`) => {
         console.log({episodeLink})
         setLoading(true)
@@ -34,13 +36,6 @@ const Episodes = ({filtered:input}) => {
 
     }
 
-
-    // const check = (re,rc) => {
-    //     if (re.includes(rc)){
-    //         console.log(rc)
-    //     }
-    // }
-
     const navigation = (action) => {
         switch (action) {
             case "next":
@@ -56,17 +51,17 @@ const Episodes = ({filtered:input}) => {
     }
     useEffect(() => {
         requestEpisodes();
+        //eslint-disable-next-line
     }, [])
 
     useEffect(() => {
         if (!input) {
             setEpisodes(episodes)
         } else {
-            const filteredEpisodes = episodes.filter(el => el.episode.trim().toLowerCase().includes(input.trim().toLowerCase()))
+            const filteredEpisodes = episodes.filter((el) => el.episode.trim().toLowerCase().includes(input.trim().toLowerCase()))
             setFiltered(filteredEpisodes)
             // console.log(filteredEpisodes)
         }
-
         //eslint-disable-next-line
     }, [input])
     return (
