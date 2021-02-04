@@ -1,13 +1,14 @@
 .csl-section{
   width: 100%;
-  background: #5c5c75;
+  //background: #5c5c75;
   display: flex;
   justify-content: space-around;
 
 &_csl-cards {
   width: 250px;
   height: 250px;
-  background: whitesmoke;
+  //background: whitesmoke
+  background: #3a3737;
   position: relative;
 
   &_slanted-text {
@@ -18,14 +19,14 @@
     letter-spacing: 4px;
     font-family: 'Architects Daughter', cursive;
     font-size: 30px;
+
     a{
       text-decoration: none;
-      color: #262525;
+      color: white;
     }
 
     &:hover {
       cursor: pointer;
-      transform: scale(1.1);
       color: purple;
     }
   }

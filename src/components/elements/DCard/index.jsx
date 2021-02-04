@@ -1,10 +1,9 @@
 import React,{useState} from 'react';
-import PropTypes from 'prop-types';
-import './card.style.css'
+import {useHistory} from "react-router-dom";
 import Info from "../../Info";
-import { useHistory } from 'react-router-dom'
+import './dcard.style.css'
 
-const Card = ({children, image,status,gender,origin, data,id}) => {
+const DCard = ({children, image,status,gender,origin, data,id}) => {
     const [showInfo, setShowInfo] = useState(false)
     const history = useHistory()
     // console.log({data})
@@ -13,16 +12,12 @@ const Card = ({children, image,status,gender,origin, data,id}) => {
         setShowInfo(true)
         history.push('/characters/single-characters', {...data})
     }
-
-
     return (
-        <div className="card" key={id} >
+        <div>
             <div  className="card-img" onClick={handleClick}>
                 <img alt="character" src={image}/>
             </div>
-            <div className={"card-meta"} style={{position: 'absolute',
-                background:' #4a544e',
-                bottom: '15px'}}>
+            <div className={"card-meta"}>
                 {children}
             </div>
 
@@ -37,13 +32,4 @@ const Card = ({children, image,status,gender,origin, data,id}) => {
     );
 };
 
-Card.propTypes = {
-    id: PropTypes.any,
-    image: PropTypes.string,
-    status: PropTypes.string,
-    gender: PropTypes.string,
-    origin: PropTypes.string,
-    data: PropTypes.object
-};
-
-export default Card;
+export default DCard;

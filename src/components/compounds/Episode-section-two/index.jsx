@@ -1,26 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios'
-import EpisodeCard from "../../elements/EpisodeCard";
 import './episode.style.css'
 import SeasonsCard from "../../elements/SeasonsCard";
 
-const EpisodeSection = ({props}) => {
+
+const EpisodeSection = () => {
     const [episodes, setEpisodes] = useState([])
-    // const [characters,setCharacters]= useState([])
-    const [pagination, setPagination] = useState({});
 
     const mainURL = process.env.REACT_APP_BASE_URL
 
     const requestEpisodes = (episodeLink = `${mainURL}/episode?page=2`) => {
-        // console.log({episodeLink})
+
         Axios.get(episodeLink).then((response) => {
             const {data, status} = response
             console.log(data)
             if (status === 200) {
-
                 setEpisodes(data.results)
-                setPagination(data.info)
-
             }
 
         })
@@ -29,26 +24,23 @@ const EpisodeSection = ({props}) => {
             })
 
     }
-
+    /**
+     * Navigates pages
+     * @param {'next' | 'prev'} action - takes 'next' or 'prev' actions
+     */
     useEffect(() => {
         requestEpisodes();
+        // eslint-disable-next-line
     }, [])
 
-
     return (
-        <div className={"episode-section "}>
-            <div className={"episode-section_ep-box container"}>
-                <h1>Latest Season</h1>
-                <div><h4>Season 4</h4></div>
+        <div className={"seasons-section"}>
+            <div className={"seasons-section_ep-box"}>
+                <h1 className={'seasons-section_ep-box_title'}>Latest Season</h1>
+                <h4 className={'seasons-section_ep-box_sub-title'}>Season 4</h4>
+                <div className={"seasons-section_episode-display-box"}>
 
-
-                <div
-                    className={"episode-section_episode-display-box"}
-                >
-
-
-                    <div className={"episodes_episode-container"}>
-
+                    <div className={"seasons-section_episode-display-box_seasons-container"}>
                         {
                             episodes.length && episodes.map((el) => (
                                 <SeasonsCard
@@ -61,19 +53,15 @@ const EpisodeSection = ({props}) => {
                                     characters={el.characters}
                                 >
                                     <ul>
-                                        <p><span>{el.episode}{el.name} </span></p>
-
-                                        <span>{new Date(el.created).toLocaleString()} </span>
+                                        <p><span>{el.episode} {" "}{el.name} </span></p>
 
                                     </ul>
-
-
                                 </SeasonsCard>
                             )).slice(17)
                         }
                     </div>
-
                 </div>
+
 
             </div>
         </div>

@@ -1,12 +1,12 @@
 import React from 'react';
 import './input.style.css'
 
-const Input = ({placeholder, handleChange}) => {
+const Input = ({placeholder, value,handleChange}) => {
 
 
     return (
         <>
-            <input placeholder={placeholder} onChange={handleChange}/>
+            <input value={value} placeholder={placeholder} onChange={handleChange}/>
         </>
     );
 };

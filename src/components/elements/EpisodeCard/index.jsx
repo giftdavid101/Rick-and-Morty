@@ -1,26 +1,32 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './episodecard.style.css'
-import { useHistory } from 'react-router-dom'
-import EpisodeCharacters from "../../compounds/episodeCharacters";
+import {useHistory} from 'react-router-dom'
 
-const EpisodeCard = ({children,id,characters}) => {
+
+const EpisodeCard = ({children, id, characters}) => {
+
+
+
+
+
     const history = useHistory()
 
 
-    let loopedCharacters =   Array.from(characters).map((el,id) => (
-        <img key={id}
-             src={el.replace("character", "character/avatar") + ".jpeg"} style={{width: 250, height: 250 }}  alt={""}/>
+    let loopedCharacters = Array.from(characters).map((el, id) => (
+        <div>
+            <img key={id}
+             src={el.replace("character", "character/avatar") + ".jpeg"} style={{width: 250, height: 308}} alt={""}/>
+        </div>
     ))
 
     const handleClick = () => {
-     history.push("/episodes/episode-characters",{ characters, id})
+        history.push("/episodes/episode-characters", {characters, id})
     }
 
-    console.log(characters)
+    // console.log(characters)
     // const dataa = (loopedCharacters)
     // console.log(loopedCharacters.length)
-    let randomEmages = Math.floor(Math.random() * loopedCharacters.length ) + 1
-
+    const randomEmages = Math.floor(Math.random() * loopedCharacters.length ) + 1
 
 
     return (
@@ -29,13 +35,22 @@ const EpisodeCard = ({children,id,characters}) => {
                 {/*{*/}
                 {/*    Array.from(characters).map((el,id) => (*/}
                 {/*        <img key={id}*/}
-                {/*             src={el.replace("character", "character/avatar") + ".jpeg"} style={{width: emagewidth }}  alt={""}/>*/}
+                {/*             src={el.replace("character", "character/avatar") + ".jpeg"} style={{width:250, height:250 }}  alt={""}/>*/}
                 {/*    ))*/}
                 {/*}*/}
-                {loopedCharacters[randomEmages]}
+                <div>
+                    {loopedCharacters[randomEmages]}
+                </div>
+
+
+
+
             </div>
-            <div>
+            <div style={{position: 'absolute',
+                background:' #4a544e',
+                bottom: '15px'}}>
                 {children}
+
             </div>
         </div>
     );

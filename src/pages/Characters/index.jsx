@@ -3,25 +3,18 @@ import Card from '../../components/elements/Card';
 import './characters.style.css'
 import Axios from "axios";
 import {Button} from "antd";
-import SingleCharacter from "../../components/compounds/singleCharacter";
-// import {Switch,Route} from "react-router-dom";
-import {withRouter} from 'react-router-dom';
 import {FaGreaterThan, FaLessThan} from "react-icons/all";
 
+const  Characters = ({filtered:input}) => {
 
-
-
-
-
-const Characters = ({input}) => {
+    // console.log(input)
 
     const [characters, setCharacters] = useState([])
     const [filtered, setFiltered] = useState([])
     const [pagination, setPagination] = useState({});
     const [loading, setLoading] = useState(false);
-    console.log(filtered)
     const mainURL = process.env.REACT_APP_BASE_URL
-    const page = withRouter(SingleCharacter)
+    console.log(filtered)
     /**
      * Takes page number
      * @param {string} link - page link
@@ -61,24 +54,19 @@ const Characters = ({input}) => {
 
     }
 
-
-
     useEffect(() => {
         requestCharacters();
         // eslint-disable-next-line
     }, []);
 
-
-
-
     useEffect(() => {
         if (!input) {
             setCharacters(characters)
-        } else {
+        }
+        else {
             const filteredCharacters = characters.filter(el => el.name.trim().toLowerCase().includes(input.trim().toLowerCase()))
             setFiltered(filteredCharacters)
         }
-
         //eslint-disable-next-line
     }, [input])
 
@@ -94,7 +82,7 @@ const Characters = ({input}) => {
                     }}>
                         loading...
                     </div> :
-                    filtered.length ?
+                    filtered.length  ?
                         filtered.map((el) => (
                             <Card
                                 key={el.id}
@@ -134,13 +122,11 @@ const Characters = ({input}) => {
                             'no characters'
                 }
             </div>
-            {/*<Switch>*/}
-            {/*<Route exact path={'/view-character'} component={SingleCharacter}/>*/}
-            {/*</Switch>*/}
-                   <>
+
+                   <div>
                         <Button className={'butn'} disabled={!pagination.prev} onClick={() => navigation('prev')}><FaLessThan/></Button>
                         <Button className={'butn'} disabled={!pagination.next} onClick={() => navigation('next')}><FaGreaterThan/></Button>
-                    </>
+                    </div>
         </div>
     )
 }
