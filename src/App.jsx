@@ -19,7 +19,6 @@ function App() {
 
     const searchCharacters = (a) => {
         setInput(a);
-        console.log(a)
     }
 
 

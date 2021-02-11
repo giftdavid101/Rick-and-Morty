@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 import Episodes from "../../pages/Episodes";
 import EpisodeCharacters from "../../components/compounds/episodeCharacters";
 
-const EpisodeRoutes = ({filtered,input}) => {
+const EpisodeRoutes = ({filtered}) => {
 
     return (
         <div>
