@@ -60,7 +60,7 @@ const Locations = ({filtered:input}) => {
         } else {
             const filteredLocations = locs.filter((el) => el.name.trim().toLowerCase().includes(input.trim().toLowerCase()))
             setFiltered(filteredLocations)
-            // console.log(filteredEpisodes)
+
         }
         //eslint-disable-next-line
     }, [input])

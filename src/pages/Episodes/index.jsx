@@ -14,17 +14,12 @@ const Episodes = ({filtered:input}) => {
     const [loading, setLoading] = useState(false)
     const mainURL = process.env.REACT_APP_BASE_URL
 
-    console.log(input)
-
-    // console.log(episodes)
-    // console.log(setFiltered)
     const requestEpisodes = (episodeLink = `${mainURL}/episode`) => {
         console.log({episodeLink})
         setLoading(true)
         Axios.get(episodeLink).then((response) => {
             setLoading(false)
             const {data, status} = response
-            // console.log(response)
             if (status === 200) {
                 setEpisodes(data.results)
                 setPagination(data.info)
@@ -60,7 +55,6 @@ const Episodes = ({filtered:input}) => {
         } else {
             const filteredEpisodes = episodes.filter((el) => el.episode.trim().toLowerCase().includes(input.trim().toLowerCase()))
             setFiltered(filteredEpisodes)
-            // console.log(filteredEpisodes)
         }
         //eslint-disable-next-line
     }, [input])
@@ -111,9 +105,6 @@ const Episodes = ({filtered:input}) => {
                                     <div>
                                         <p>{el.episode}</p>
                                         <p>{el.name} </p>
-                                        {/*<span>{new Date(el.created).toLocaleString()} </span>*/}
-
-
                                     </div>
                                 </EpisodeCard>
                             ))

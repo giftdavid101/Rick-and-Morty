@@ -7,8 +7,6 @@ import {FaGreaterThan, FaLessThan} from "react-icons/all";
 
 const  Characters = ({filtered:input}) => {
 
-    // console.log(input)
-
     const [characters, setCharacters] = useState([])
     const [filtered, setFiltered] = useState([])
     const [pagination, setPagination] = useState({});
@@ -32,7 +30,6 @@ const  Characters = ({filtered:input}) => {
                 }
             })
             .catch((err) => {
-                // setLoading(false)
                 console.log(err)
             });
     }

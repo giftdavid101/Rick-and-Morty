@@ -16,6 +16,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .dead-characters_dc-box_DC-display-container {
   width: 100%;

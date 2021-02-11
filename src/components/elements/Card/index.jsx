@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom'
 const Card = ({children, image,status,gender,origin, data,id}) => {
     const [showInfo, setShowInfo] = useState(false)
     const history = useHistory()
-    // console.log({data})
+
 
     const handleClick = () => {
         setShowInfo(true)

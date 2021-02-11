@@ -1,6 +1,5 @@
 .dead-characters{
   width:100%;
-  //background: green;
   &_title{
     padding: 30px 30px 10px 30px;
     text-transform: uppercase;
@@ -18,9 +17,7 @@
       grid-template-columns: 1fr 1fr 1fr;
       justify-content: center;
       align-items: center;
-      //background: orange;
-
-
+      text-align: center;
 
     }
     &_DC-display-container{

@@ -3,10 +3,10 @@ import {useHistory} from "react-router-dom";
 import Info from "../../Info";
 import './dcard.style.css'
 
-const DCard = ({children, image,status,gender,origin, data,id}) => {
+const DCard = ({children, image,status,gender,origin, data}) => {
     const [showInfo, setShowInfo] = useState(false)
     const history = useHistory()
-    // console.log({data})
+
 
     const handleClick = () => {
         setShowInfo(true)

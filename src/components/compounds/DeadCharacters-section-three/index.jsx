@@ -47,8 +47,6 @@ const DeadCharacters = () => {
             <div className={"dead-characters_dc-box "}>
 
                 <div className={"dead-characters_dc-box_content"}>
-
-
                     {filtered.length ?
                         filtered.map((el) => (
                             <DCard
@@ -73,15 +71,6 @@ const DeadCharacters = () => {
                     }
 
                 </div>
-                {/* <div className={"dead-characters_dc-box_DC-display-container"}>*/}
-                {/*<div className={"dead-characters_dc-box_DC-display-container_DC-display-box"}>*/}
-                {/*    <div className={"dead-characters_dc-box_DC-display-container_DC-display-box_DC-card"}>Photo</div>*/}
-                {/*    <div className={"dead-characters_dc-box_DC-display-container_DC-display-box_DC-card"}>Photo</div>*/}
-                {/*    <div className={"dead-characters_dc-box_DC-display-container_DC-display-box_DC-card"}>Photo</div>*/}
-                {/*    <div className={"dead-characters_dc-box_DC-display-container_DC-display-box_DC-card"}>Photo</div>*/}
-                {/*    <div className={"dead-characters_dc-box_DC-display-container_DC-display-box_DC-card"}>Photo</div>*/}
-                {/*    <div className={"dead-characters_dc-box_DC-display-container_DC-display-box_DC-card"}>Photo</div>*/}
-                {/*</div>*/}
             </div>
 
         </div>
